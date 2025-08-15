@@ -1,0 +1,5 @@
+openai
+newsapi-python
+yfinance
+schedule
+python-dotenv
