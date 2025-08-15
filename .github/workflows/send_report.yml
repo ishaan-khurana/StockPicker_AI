@@ -1,4 +1,4 @@
-nname: 📈 Daily Stock Report
+name: 📈 Daily Stock Report
 
 on:
   schedule:
