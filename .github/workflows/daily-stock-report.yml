@@ -31,7 +31,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: 🚀 Run Report Script
-        run: python main.py  # Replace with your actual file name
-
-      - name: Run stock report script
-        run: python main.py
+        run: python main.py  # ✅ This is the only script run needed
