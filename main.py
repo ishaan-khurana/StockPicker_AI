@@ -23,7 +23,7 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 # ===== Constants =====
 SECTORS = ["biotechnology", "bioelectronic medicine", "energy production", "technology"]
 MY_STOCKS = ["AAPL", "NVDA", "AVGO", "SMR", "VOO"]
-RECIPIENTS = ["youremail@example.com", "someoneelse@example.com"]  # Add more as needed
+RECIPIENTS = os.getenv("EMAIL_RECIPIENTS", "").split(",")  # Add more as needed
 
 # ===== Initialize Clients =====
 newsapi = NewsApiClient(api_key=NEWS_API_KEY)
