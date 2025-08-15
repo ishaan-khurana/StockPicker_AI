@@ -1,12 +1,12 @@
-name: Daily Stock Report
+nname: 📈 Daily Stock Report
 
 on:
   schedule:
-    - cron: '15 13 * * *'  # Runs every day at 1:15 PM UTC
-  workflow_dispatch:        # Allows manual triggering from the GitHub UI
+    - cron: '0 12 * * *'  # Runs daily at 12:00 UTC
+  workflow_dispatch:      # Allows manual trigger
 
 jobs:
-  send-report:
+  report:
     runs-on: ubuntu-latest
 
     env:
@@ -14,20 +14,24 @@ jobs:
       NEWS_API_KEY: ${{ secrets.NEWS_API_KEY }}
       EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
       EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
 
     steps:
-      - name: Checkout repository
+      - name: 📥 Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: 🐍 Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: '3.11'
 
-      - name: Install dependencies
+      - name: 📦 Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+
+      - name: 🚀 Run Report Script
+        run: python main.py  # Replace with your actual file name
 
       - name: Run stock report script
         run: python main.py
