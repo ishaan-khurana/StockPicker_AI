@@ -2,7 +2,7 @@ name: 📈 Daily Stock Report
 
 on:
   schedule:
-    - cron: '0 12 * * *'  # Runs daily at 12:00 UTC
+    - cron: '15 9 * * *'  # Runs daily at 9:15 UTC
   workflow_dispatch:      # Allows manual trigger
 
 jobs:
